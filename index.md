@@ -77,7 +77,17 @@
 | モブプログラミング | 利用経験がある |
 
 
-## 興味があるもの
+# 興味があるもの
+* ソフトウェアのアーキテクチャと設計周りに関して（パッケージ構成）
 * フロントエンド、UI/UX
 * ETL基盤の立ち上げ〜作り込み
-* ソフトウェアのアーキテクチャと設計周りに関して（パッケージ構成）
+
+
+# 個人開発環境
+- インフラ
+  - GCP（GKE, Cloud Run, Datastore, KMS, Cloud Scheduler, Cloud Function）
+  - Vercel
+- 言語
+  - Golang / Python3
+- フレームワーク
+  - gin / cobra
