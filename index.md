@@ -88,6 +88,6 @@
   - GCP（GKE, Cloud Run, Datastore, KMS, Cloud Scheduler, Cloud Function）
   - Vercel
 - 言語
-  - Golang / Python3
+  - Golang / Python3 / Vue / Javascript
 - フレームワーク
-  - gin / cobra
+  - gin / cobra / nuxt.js / vuetify
