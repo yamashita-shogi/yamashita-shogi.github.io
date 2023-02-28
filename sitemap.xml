@@ -97,13 +97,6 @@
 
   
   <url>
-    <loc>https://blog.keiba-note.cyou/categories/hexo/</loc>
-    <lastmod>2023-02-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.keiba-note.cyou/categories/iPhone/</loc>
     <lastmod>2023-02-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -118,7 +111,7 @@
   </url>
   
   <url>
-    <loc>https://blog.keiba-note.cyou/categories/Python/</loc>
+    <loc>https://blog.keiba-note.cyou/categories/hexo/</loc>
     <lastmod>2023-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -126,6 +119,13 @@
   
   <url>
     <loc>https://blog.keiba-note.cyou/categories/nuxt/</loc>
+    <lastmod>2023-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.keiba-note.cyou/categories/Python/</loc>
     <lastmod>2023-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

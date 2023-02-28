@@ -9,8 +9,8 @@ https://blog.keiba-note.cyou/
 https://blog.keiba-note.cyou/tags/%E3%83%A9%E3%82%B8%E3%82%AA/
 https://blog.keiba-note.cyou/tags/Fileproviderd/
 https://blog.keiba-note.cyou/tags/pandas/
-https://blog.keiba-note.cyou/categories/hexo/
 https://blog.keiba-note.cyou/categories/iPhone/
 https://blog.keiba-note.cyou/categories/Mac/
-https://blog.keiba-note.cyou/categories/Python/
+https://blog.keiba-note.cyou/categories/hexo/
 https://blog.keiba-note.cyou/categories/nuxt/
+https://blog.keiba-note.cyou/categories/Python/
