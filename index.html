@@ -86,6 +86,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vercelのlambdaサイズ上限エラー" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/" class="article-date">
+  <time class="dt-published" datetime="2023-03-22T08:34:23.000Z" itemprop="datePublished">2023-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vercel/">vercel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/">vercel の lambda サイズ上限エラー</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>vercel 上に SSR をデプロイしていますが、少し前にデプロイした最、以下のエラーに遭遇しました。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: The Serverless Function &quot;index&quot; is 85.53mb which exceeds the maximum size limit of 50mb. Learn More: https://vercel.link/serverless-function-size</span><br></pre></td></tr></table></figure>
+
+<p>これの解消方法と調べたことを書きます</p>
+<h2 id="解消方法"><a href="#解消方法" class="headerlink" title="解消方法"></a>解消方法</h2><p><code>vercel.json</code> というデプロイの設定ファイルで指定するビルダーのバージョンを以下のように変更しました</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;use&quot;: &quot;@nuxtjs/vercel-builder&quot;</span><br><span class="line">↓</span><br><span class="line">&quot;use&quot;: &quot;@nuxtjs/vercel-builder@0.21.3&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="調べたこと、やってみたこと"><a href="#調べたこと、やってみたこと" class="headerlink" title="調べたこと、やってみたこと"></a>調べたこと、やってみたこと</h2><p>以下のことを試しましたが効果なしでした</p>
+<ul>
+<li>不要な画像の削除</li>
+<li>リージョンの変更</li>
+<li>不要モジュールの見直し</li>
+</ul>
+<p>解消法は <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/74235239/vercel-build-size-vs-local-build-size-is-different">こちら</a> から vercel-build の github issue にたどり着き、それらを参考にしました</p>
+<p>もしかしたらもう治ってるかもしれませんが、バージョン固定をいつまでしてたらいいのかなど情報は追っておかないといけないかもしれませんね</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/" data-id="clfjtxyej000c0lp80k350ckf" data-title="vercel の lambda サイズ上限エラー" class="article-share-link">共有</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-pandasの値操作のメモ" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" class="article-date">
@@ -104,7 +162,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandasの値操作のメモ</a>
+      <a class="p-name article-title" href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandas の値操作のメモ</a>
     </h1>
   
 
@@ -112,17 +170,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>pandasは超便利です</p>
-<p>pandasで解釈したdataframeの操作に関するメモをまとめます</p>
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>pandas は超便利です</p>
+<p>pandas で解釈した dataframe の操作に関するメモをまとめます</p>
 <p>思い出したら定期的に追記していきます</p>
 <h3 id="抽出"><a href="#抽出" class="headerlink" title="抽出"></a>抽出</h3><p>例：数字含む内容なら</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(df[&quot;キー名&quot;].str.extract(r&quot;(\d.+)&quot;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[<span class="string">&quot;キー名&quot;</span>].<span class="built_in">str</span>.extract(<span class="string">r&quot;(\d.+)&quot;</span>))</span><br></pre></td></tr></table></figure>
+
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" data-id="clepeocg90008oip88h8ea6hs" data-title="pandasの値操作のメモ" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" data-id="clfjtxye600070lp8b53067z3" data-title="pandas の値操作のメモ" class="article-share-link">共有</a>
       
       
       
@@ -154,7 +213,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/">nuxt/contentを使ったブログの構築</a>
+      <a class="p-name article-title" href="/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/">nuxt/content を使ったブログの構築</a>
     </h1>
   
 
@@ -162,12 +221,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="使用するパッケージについて"><a href="#使用するパッケージについて" class="headerlink" title="使用するパッケージについて"></a>使用するパッケージについて</h2><p>markdown-it を最初使っていたのですが、build後のスクリプトに未使用の部分が多くあり、それがページスコアの <code>time to interactive</code> に影響を及ぼしていたので nuxt&#x2F;content に切り替えました。</p>
-<p>切り替えたことで <code>time to interactive</code> と <code>First Contentful Paint</code> の向上が見られましたので、contentが自分の使い方に合っていたということだと思いますが。</p>
+        <h2 id="使用するパッケージについて"><a href="#使用するパッケージについて" class="headerlink" title="使用するパッケージについて"></a>使用するパッケージについて</h2><p>markdown-it を最初使っていたのですが、build 後のスクリプトに未使用の部分が多くあり、それがページスコアの <code>time to interactive</code> に影響を及ぼしていたので nuxt&#x2F;content に切り替えました。</p>
+<p>切り替えたことで <code>time to interactive</code> と <code>First Contentful Paint</code> の向上が見られましたので、content が自分の使い方に合っていたということだと思いますが。</p>
 <h2 id="構築"><a href="#構築" class="headerlink" title="構築"></a>構築</h2><p>nuxt&#x2F;content を使って構築していくにあたり、以下を参考にさせていただきました🙇‍♂️<br><a target="_blank" rel="noopener" href="https://domarpdev.github.io/blog/create-medium-style-blog-theme/">Create Medium Style Blog Theme with Nuxt JS - Pramod Devireddy</a></p>
-<p>contentはこんな感じで入れます</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i @nuxt/content</span><br></pre></td></tr></table></figure>
-
+<p>content はこんな感じで入れます</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i @nuxt/content</span><br></pre></td></tr></table></figure>
 
 <p>ファイル構成はこんな形になります</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── content</span><br><span class="line">│   └── blog</span><br><span class="line">│       └── ほげ.md</span><br><span class="line">├── pages</span><br><span class="line">│   └── blog</span><br><span class="line">│       ├── _slug.vue</span><br><span class="line">│       └── index.vue</span><br></pre></td></tr></table></figure>
@@ -175,28 +233,30 @@
 <p>それぞれの役割は以下です</p>
 <ul>
 <li>content&#x2F;blog&#x2F;ほげ.md<ul>
-<li>markdownで書くブログ記事の内容</li>
+<li>markdown で書くブログ記事の内容</li>
 </ul>
 </li>
 <li>pages&#x2F;blog&#x2F;index.vue<ul>
-<li>blog&#x2F; でアクセスしたときの一覧ページのvueファイル</li>
+<li>blog&#x2F; でアクセスしたときの一覧ページの vue ファイル</li>
 </ul>
 </li>
 <li>pages&#x2F;blog&#x2F;_slug.vue<ul>
-<li>各ブログ記事を出すためのvueファイル</li>
+<li>各ブログ記事を出すための vue ファイル</li>
 </ul>
 </li>
 </ul>
-<p>blog一覧ページには以下のような感じで $content を使って記事を検索し、その結果をvueで使うような形です</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  async asyncData (&#123; $content, params &#125;) &#123;</span><br><span class="line">    const query = await $content(&quot;blog&quot;, params.slug).sortBy(&quot;createdAt&quot;, &quot;desc&quot;)</span><br><span class="line">    const blog = await query.fetch()</span><br><span class="line">    return &#123; blog &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>blog 一覧ページには以下のような感じで $content を使って記事を検索し、その結果を vue で使うような形です</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> asyncData (&#123; $content, params &#125;) &#123;</span><br><span class="line">    <span class="keyword">const</span> query = <span class="keyword">await</span> $content(<span class="string">&quot;blog&quot;</span>, params.<span class="property">slug</span>).<span class="title function_">sortBy</span>(<span class="string">&quot;createdAt&quot;</span>, <span class="string">&quot;desc&quot;</span>)</span><br><span class="line">    <span class="keyword">const</span> blog = <span class="keyword">await</span> query.<span class="title function_">fetch</span>()</span><br><span class="line">    <span class="keyword">return</span> &#123; blog &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>content情報が取れていれば、vueの方では例えば以下のような形でforをすることで記事の一覧を作ることができます。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;v-card</span><br><span class="line">  v-for=&quot;b of blog&quot;</span><br><span class="line">  :key=&quot;b.slug&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 
-<p>こんな感じで構成が整えば <code>npm run dev</code> 等で <code>http://localhost:3000/blog/</code> などといったURLでアクセスできます。</p>
+<p>content 情報が取れていれば、vue の方では例えば以下のような形で for をすることで記事の一覧を作ることができます。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;v-card</span><br><span class="line">  v-<span class="keyword">for</span>=<span class="string">&quot;b of blog&quot;</span></span><br><span class="line">  :key=<span class="string">&quot;b.slug&quot;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>こんな感じで構成が整えば <code>npm run dev</code> 等で <code>http://localhost:3000/blog/</code> などといった URL でアクセスできます。</p>
 <p>記事一覧が出ているでしょうか？</p>
-<h2 id="タグがついた記事の一覧表示"><a href="#タグがついた記事の一覧表示" class="headerlink" title="タグがついた記事の一覧表示"></a>タグがついた記事の一覧表示</h2><p>content以下のmarkdownファイルに以下のようにタグをつけることができます</p>
+<h2 id="タグがついた記事の一覧表示"><a href="#タグがついた記事の一覧表示" class="headerlink" title="タグがついた記事の一覧表示"></a>タグがついた記事の一覧表示</h2><p>content 以下の markdown ファイルに以下のようにタグをつけることができます</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: hoge</span><br><span class="line">tags:</span><br><span class="line">  - ふが</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
 
 <p>こうやってつけたタグごとの一覧ページも出すことができます</p>
 <p>ファイル構成はこんな感じになります</p>
@@ -204,9 +264,9 @@
 
 <p>要は <code>pages/blog/tag/_slug/index.vue</code> の追加だけです。</p>
 <p>中身はこんな形です</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;v-container mt-50 pt-50&gt;</span><br><span class="line">    &lt;h2</span><br><span class="line">      class=&quot;my-4 mx-9&quot;</span><br><span class="line">      justify=&quot;center&quot;</span><br><span class="line">      align=&quot;center&quot;</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;v-icon&gt;$tagOutlineIcon&lt;/v-icon&gt;『&#123;&#123; $route.params.slug &#125;&#125;』 のタグがついた記事</span><br><span class="line">    &lt;/h2&gt;</span><br><span class="line">    &lt;div class=&quot;d-flex flex-wrap&quot;&gt;</span><br><span class="line">        &lt;v-card</span><br><span class="line">          class=&quot;ma-6&quot;</span><br><span class="line">          elevation=&quot;5&quot;</span><br><span class="line">          v-for=&quot;b of blog&quot;</span><br><span class="line">          :key=&quot;b.slug&quot;</span><br><span class="line">          width=&quot;500&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;NuxtLink</span><br><span class="line">            class=&quot;post-card&quot;</span><br><span class="line">            :to=&quot;&#123; name: &#x27;blog-slug&#x27;, params: &#123; slug: b.slug &#125; &#125;&quot;</span><br><span class="line">          &gt;</span><br><span class="line">          &lt;/NuxtLink&gt;</span><br><span class="line">        &lt;/v-card&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;template v-if=&quot;blog.length === 0&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;d-flex flex-wrap justify-center fill-heilght&quot;&gt;</span><br><span class="line">        &#123;&#123; $route.params.name &#125;&#125; に該当する記事はありませんでした</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/v-container&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  head() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: this.$route.params.slug</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  async asyncData (&#123; $content, params &#125;) &#123;</span><br><span class="line">    const tag = params.slug</span><br><span class="line">    const blog = await $content(&#x27;blog&#x27;)</span><br><span class="line">      .only([&#x27;title&#x27;, &#x27;img&#x27;, &#x27;createdAt&#x27;, &#x27;slug&#x27;])</span><br><span class="line">      .where(&#123; tags: &#123; $contains: tag &#125; &#125;)</span><br><span class="line">      .sortBy(&#x27;createdAt&#x27;, &#x27;desc&#x27;)</span><br><span class="line">      .fetch()</span><br><span class="line">    return &#123; tag, blog &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.post-card &#123;</span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">v-container</span> <span class="attr">mt-50</span> <span class="attr">pt-50</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h2</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">class</span>=<span class="string">&quot;my-4 mx-9&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">justify</span>=<span class="string">&quot;center&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">align</span>=<span class="string">&quot;center&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">v-icon</span>&gt;</span>$tagOutlineIcon<span class="tag">&lt;/<span class="name">v-icon</span>&gt;</span>『』 のタグがついた記事</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;d-flex flex-wrap&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">v-card</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">class</span>=<span class="string">&quot;ma-6&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">elevation</span>=<span class="string">&quot;5&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">v-for</span>=<span class="string">&quot;b of blog&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">:key</span>=<span class="string">&quot;b.slug&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">width</span>=<span class="string">&quot;500&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">NuxtLink</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">class</span>=<span class="string">&quot;post-card&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">:to</span>=<span class="string">&quot;&#123; name: &#x27;blog-slug&#x27;, params: &#123; slug: b.slug &#125; &#125;&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">NuxtLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">v-card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">&quot;blog.length === 0&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;d-flex flex-wrap justify-center fill-heilght&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">         に該当する記事はありませんでした</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">v-container</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="title function_">head</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="attr">title</span>: <span class="variable language_">this</span>.<span class="property">$route</span>.<span class="property">params</span>.<span class="property">slug</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">async</span> asyncData (&#123; $content, params &#125;) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">const</span> tag = params.<span class="property">slug</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">const</span> blog = <span class="keyword">await</span> $content(<span class="string">&#x27;blog&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      .<span class="title function_">only</span>([<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;img&#x27;</span>, <span class="string">&#x27;createdAt&#x27;</span>, <span class="string">&#x27;slug&#x27;</span>])</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      .<span class="title function_">where</span>(&#123; <span class="attr">tags</span>: &#123; <span class="attr">$contains</span>: tag &#125; &#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      .<span class="title function_">sortBy</span>(<span class="string">&#x27;createdAt&#x27;</span>, <span class="string">&#x27;desc&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      .<span class="title function_">fetch</span>()</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">return</span> &#123; tag, blog &#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.post-card</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">  <span class="attribute">text-decoration</span>: none;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-<p>こうすると、<code>http://localhost:3000/blog/タグA/</code> というURLで、タグAのついた記事があれば一覧が出ますし、なければ『ありません』と出ます。</p>
+<p>こうすると、<code>http://localhost:3000/blog/タグ A/</code> という URL で、タグ A のついた記事があれば一覧が出ますし、なければ『ありません』と出ます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>簡単にオリジナルのブログをつくれました。参考になる記事もたくさんあるので、構築もしやすいです。</p>
 <p>ただ記事一覧の出し方やブログのレイアウトなど、細かい調整にある程度の知識も必要になり、自分はそこに時間をかけるのを避けたくて、代わりにこのブログを作り始めました。<br>（タグ一覧どこにどう出そうか、記事一覧もっと見やすくだしたいけどどっからどう着手したらいいか　などの部分）</p>
 <p>勉強にはなったんですけどね。熱が出てきたらまた再開するかもしれませんが。</p>
@@ -214,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/" data-id="clepeocg00006oip8dy1z4fl9" data-title="nuxt/contentを使ったブログの構築" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/" data-id="clfjtxyeb00080lp8ebadf3zh" data-title="nuxt/content を使ったブログの構築" class="article-share-link">共有</a>
       
       
       
@@ -244,7 +304,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhoneでラジオを聞くならjetAudio</a>
+      <a class="p-name article-title" href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio</a>
     </h1>
   
 
@@ -254,15 +314,15 @@
       
         <p>ついにたどり着きました</p>
 <h2 id="ミュージックはミュージック"><a href="#ミュージックはミュージック" class="headerlink" title="ミュージックはミュージック"></a>ミュージックはミュージック</h2><p>私はラジオを良く聞きます。</p>
-<p>ただ、iOS標準のミュージックアプリはラジオを聴くには不便です。</p>
-<p>なぜなら面白い部分は導入部分からだったり1つのやり取りだったり、リアクションだったり…いろんな箇所を何度も繰り返し聞きたくなるからです。</p>
-<p>標準ミュージックアプリはシーク操作による移動しかできないため、慎重に操作しないと行き過ぎることが多々あります。シーク操作で10秒戻ったりするのは簡単ではないです。</p>
-<p>理想はpodcastアプリのようにワンタップで15秒とか何ならカスタマイズした秒数戻せるもの。</p>
-<p>そう思ってたくさん検索しましたが、なかなかいいモノにたどり着かず、1つずつそれっぽいアプリを試していたところでjetAudioにたどり着きました。</p>
-<h2 id="jetAudio"><a href="#jetAudio" class="headerlink" title="jetAudio"></a>jetAudio</h2><p><strong><a target="_blank" rel="noopener" href="https://apps.apple.com/jp/app/%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA-hd%E9%9F%B3%E6%A5%BD%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC/id894888135">「ジェットオーディオ - HD音楽プレーヤー」をApp Storeで</a></strong></p>
+<p>ただ、iOS 標準のミュージックアプリはラジオを聴くには不便です。</p>
+<p>なぜなら面白い部分は導入部分からだったり 1 つのやり取りだったり、リアクションだったり…いろんな箇所を何度も繰り返し聞きたくなるからです。</p>
+<p>標準ミュージックアプリはシーク操作による移動しかできないため、慎重に操作しないと行き過ぎることが多々あります。シーク操作で 10 秒戻ったりするのは簡単ではないです。</p>
+<p>理想は podcast アプリのようにワンタップで 15 秒とか何ならカスタマイズした秒数戻せるもの。</p>
+<p>そう思ってたくさん検索しましたが、なかなかいいモノにたどり着かず、1 つずつそれっぽいアプリを試していたところで jetAudio にたどり着きました。</p>
+<h2 id="jetAudio"><a href="#jetAudio" class="headerlink" title="jetAudio"></a>jetAudio</h2><p><strong><a target="_blank" rel="noopener" href="https://apps.apple.com/jp/app/%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA-hd%E9%9F%B3%E6%A5%BD%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC/id894888135">「ジェットオーディオ - HD 音楽プレーヤー」を App Store で</a></strong></p>
 <p>このアプリは見事に需要と一致しておりました！</p>
 <ul>
-<li>最短2秒戻し・送りボタン</li>
+<li>最短 2 秒戻し・送りボタン</li>
 <li>特定部分の繰り返しも可能（使ったことない</li>
 <li>速度調整も可能</li>
 </ul>
@@ -274,7 +334,7 @@
 <p>設定幅</p>
 <p><img src="/images/jetaudio_%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0.jpg" alt="設定詳細"></p>
 <hr>
-<p>理想はpodcastアプリ同様、ロック画面からの指定時間の戻しですが、本当にケチをつけるならという感じで、個人的にそこまで重要視していません。</p>
+<p>理想は podcast アプリ同様、ロック画面からの指定時間の戻しですが、本当にケチをつけるならという感じで、個人的にそこまで重要視していません。</p>
 <p>シークによる慎重な操作から開放された時点で満足です。</p>
 <p>外出時にもパッと操作して行き来できるので最高ですね。</p>
 <p>ラジオ以外でも同じような不満や需要を持っている方が居ればぜひ試してみて欲しいですね！</p>
@@ -283,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/" data-id="clepeocg40007oip8frk33ph9" data-title="iPhoneでラジオを聞くならjetAudio" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/" data-id="clfjtxye200060lp84xy107p5" data-title="iPhone でラジオを聞くなら jetAudio" class="article-share-link">共有</a>
       
       
       
@@ -331,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/" data-id="clepeocfd0001oip8gys5fxj8" data-title="Mac で Fileproviderd というプロセスのCPU利用率が高い" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/" data-id="clfjtxyd400010lp891243dan" data-title="Mac で Fileproviderd というプロセスのCPU利用率が高い" class="article-share-link">共有</a>
       
       
       
@@ -382,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/" data-id="clepeocfo0003oip8h4yrhwvl" data-title="hexo デフォルトのlandscapeテーマのバナー画像を変更する" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/" data-id="clfjtxydo00030lp85w0l1o8q" data-title="hexo デフォルトのlandscapeテーマのバナー画像を変更する" class="article-share-link">共有</a>
       
       
       
@@ -404,7 +464,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">カテゴリ</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iPhone/">iPhone</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nuxt/">nuxt</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iPhone/">iPhone</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nuxt/">nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vercel/">vercel</a></li></ul>
     </div>
   </div>
 
@@ -446,23 +506,23 @@
       <ul>
         
           <li>
-            <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandasの値操作のメモ</a>
+            <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/">vercel の lambda サイズ上限エラー</a>
           </li>
         
           <li>
-            <a href="/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/">nuxt/contentを使ったブログの構築</a>
+            <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandas の値操作のメモ</a>
           </li>
         
           <li>
-            <a href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhoneでラジオを聞くならjetAudio</a>
+            <a href="/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/">nuxt/content を使ったブログの構築</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio</a>
           </li>
         
           <li>
             <a href="/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/">Mac で Fileproviderd というプロセスのCPU利用率が高い</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/04/hexo-landscape-setup/">hexo デフォルトのlandscapeテーマのバナー画像を変更する</a>
           </li>
         
       </ul>
