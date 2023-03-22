@@ -1,14 +1,15 @@
 ---
-title: nuxt/contentを使ったブログの構築
+title: nuxt/content を使ったブログの構築
 date: 2022-11-08 16:39:35
 categories:
+- nuxt
 tags:
 ---
 
 ## 使用するパッケージについて
-markdown-it を最初使っていたのですが、build後のスクリプトに未使用の部分が多くあり、それがページスコアの `time to interactive` に影響を及ぼしていたので nuxt/content に切り替えました。
+markdown-it を最初使っていたのですが、build 後のスクリプトに未使用の部分が多くあり、それがページスコアの `time to interactive` に影響を及ぼしていたので nuxt/content に切り替えました。
 
-切り替えたことで `time to interactive` と `First Contentful Paint` の向上が見られましたので、contentが自分の使い方に合っていたということだと思いますが。
+切り替えたことで `time to interactive` と `First Contentful Paint` の向上が見られましたので、content が自分の使い方に合っていたということだと思いますが。
 
 
 ## 構築
@@ -16,11 +17,10 @@ nuxt/content を使って構築していくにあたり、以下を参考にさ�
 [Create Medium Style Blog Theme with Nuxt JS - Pramod Devireddy](https://domarpdev.github.io/blog/create-medium-style-blog-theme/)
 
 
-contentはこんな感じで入れます
-```
+content はこんな感じで入れます
+{% codeblock lang:shell %}
 npm i @nuxt/content
-```
-
+{% endcodeblock %}
 
 ファイル構成はこんな形になります
 ```
@@ -36,14 +36,14 @@ npm i @nuxt/content
 それぞれの役割は以下です
 
 * content/blog/ほげ.md
-  * markdownで書くブログ記事の内容
+  * markdown で書くブログ記事の内容
 * pages/blog/index.vue
-  * blog/ でアクセスしたときの一覧ページのvueファイル
+  * blog/ でアクセスしたときの一覧ページの vue ファイル
 * pages/blog/_slug.vue
-  * 各ブログ記事を出すためのvueファイル
+  * 各ブログ記事を出すための vue ファイル
 
-blog一覧ページには以下のような感じで $content を使って記事を検索し、その結果をvueで使うような形です
-```
+blog 一覧ページには以下のような感じで $content を使って記事を検索し、その結果を vue で使うような形です
+{% codeblock lang:js %}
 <script>
 export default {
   async asyncData ({ $content, params }) {
@@ -53,24 +53,25 @@ export default {
   }
 }
 </script>
-```
+{% endcodeblock %}
 
-content情報が取れていれば、vueの方では例えば以下のような形でforをすることで記事の一覧を作ることができます。
-```
+
+content 情報が取れていれば、vue の方では例えば以下のような形で for をすることで記事の一覧を作ることができます。
+{% codeblock lang:js %}
 <v-card
   v-for="b of blog"
   :key="b.slug"
 >
-```
+{% endcodeblock %}
 
-こんな感じで構成が整えば `npm run dev` 等で `http://localhost:3000/blog/` などといったURLでアクセスできます。
+こんな感じで構成が整えば `npm run dev` 等で `http://localhost:3000/blog/` などといった URL でアクセスできます。
 
 記事一覧が出ているでしょうか？
 
 
 
 ## タグがついた記事の一覧表示
-content以下のmarkdownファイルに以下のようにタグをつけることができます
+content 以下の markdown ファイルに以下のようにタグをつけることができます
 ```
 ---
 title: hoge
@@ -78,6 +79,7 @@ tags:
   - ふが
 ---
 ```
+
 
 こうやってつけたタグごとの一覧ページも出すことができます
 
@@ -96,7 +98,7 @@ tags:
 
 
 中身はこんな形です
-```
+{% codeblock lang:js %}
 <template>
   <v-container mt-50 pt-50>
     <h2
@@ -155,9 +157,9 @@ export default {
   text-decoration: none;
 }
 </style>
-```
+{% endcodeblock %}
 
-こうすると、`http://localhost:3000/blog/タグA/` というURLで、タグAのついた記事があれば一覧が出ますし、なければ『ありません』と出ます。
+こうすると、`http://localhost:3000/blog/タグA/` という URL で、タグ A のついた記事があれば一覧が出ますし、なければ『ありません』と出ます。
 
 
 ## まとめ

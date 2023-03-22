@@ -67,12 +67,29 @@ valine:
   placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
 
+# sitemap:
+#   path:
+#     - sitemap.xml
+#     - sitemap.txt
+#   template: ./sitemap_template.xml
+#   template_txt: ./sitemap_template.txt
+#   rel: false
+#   tags: true
+#   categories: true
 sitemap:
-  path:
-    - sitemap.xml
-    - sitemap.txt
-  template: ./sitemap_template.xml
-  template_txt: ./sitemap_template.txt
-  rel: false
-  tags: true
-  categories: true
+  path: sitemap.xml
+  tag: false
+  category: false
+
+robotstxt:
+  # useragent: "*"
+  disallow:
+    - /all-categories/
+    - /categories/
+    - /all-tags/
+    - /tags/
+    - /all-archives/
+    - /assets/images/
+    - /assets/
+  allow:
+  sitemap: /sitemap.xml
