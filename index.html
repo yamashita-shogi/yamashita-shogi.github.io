@@ -153,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/24/CloudRun-Job%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%84/" data-id="clfoymkkz0001adp829g2d4oj" data-title="CloudRun Job が動かない" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/24/CloudRun-Job%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%84/" data-id="clfoysas60001mrp83rtoeg48" data-title="CloudRun Job が動かない" class="article-share-link">共有</a>
       
       
       
@@ -165,9 +165,9 @@
 
 
   
-    <article id="post-vercelのlambdaサイズ上限エラー" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-vercelのlambdaサイズ上限エラーとその回避方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/" class="article-date">
+    <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/" class="article-date">
   <time class="dt-published" datetime="2023-03-22T08:34:23.000Z" itemprop="datePublished">2023-03-22</time>
 </a>
     
@@ -183,7 +183,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/">vercel の lambda サイズ上限エラー</a>
+      <a class="p-name article-title" href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/">vercel の lambda サイズ上限エラーとその回避方法</a>
     </h1>
   
 
@@ -195,7 +195,8 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: The Serverless Function &quot;index&quot; is 85.53mb which exceeds the maximum size limit of 50mb. Learn More: https://vercel.link/serverless-function-size</span><br></pre></td></tr></table></figure>
 
 <p>これの解消方法と調べたことを書きます</p>
-<h2 id="解消方法"><a href="#解消方法" class="headerlink" title="解消方法"></a>解消方法</h2><p><code>vercel.json</code> というデプロイの設定ファイルで指定するビルダーのバージョンを以下のように変更しました</p>
+<h2 id="解消方法"><a href="#解消方法" class="headerlink" title="解消方法"></a>解消方法</h2><p>まずは解消方法から書きます</p>
+<p><code>vercel.json</code> というデプロイの設定ファイルで指定するビルダーのバージョンを以下のように変更しました</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;use&quot;: &quot;@nuxtjs/vercel-builder&quot;</span><br><span class="line">↓</span><br><span class="line">&quot;use&quot;: &quot;@nuxtjs/vercel-builder@0.21.3&quot;</span><br></pre></td></tr></table></figure>
 
 
@@ -207,11 +208,12 @@
 </ul>
 <p>解消法は <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/74235239/vercel-build-size-vs-local-build-size-is-different">こちら</a> から vercel-build の github issue にたどり着き、それらを参考にしました</p>
 <p>もしかしたらもう治ってるかもしれませんが、バージョン固定をいつまでしてたらいいのかなど情報は追っておかないといけないかもしれませんね</p>
+<p>ビルダーのバグでこんなことになってしまうんだと勉強になりました</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/" data-id="clfoymkm5000dadp84zev6tc1" data-title="vercel の lambda サイズ上限エラー" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/" data-id="clfoysatm000bmrp8dmdoebrr" data-title="vercel の lambda サイズ上限エラーとその回避方法" class="article-share-link">共有</a>
       
       
       
@@ -260,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" data-id="clfoymklx000aadp8gods33b6" data-title="pandas の値操作のメモ" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" data-id="clfoysatj000amrp8arsx74t0" data-title="pandas の値操作のメモ" class="article-share-link">共有</a>
       
       
       
@@ -353,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/" data-id="clfoymklr0008adp84i7c1jsi" data-title="nuxt/content を使ったブログの構築" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/" data-id="clfoysat90008mrp80aw9aaf9" data-title="nuxt/content を使ったブログの構築" class="article-share-link">共有</a>
       
       
       
@@ -422,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/" data-id="clfoymkli0005adp85yqe8sea" data-title="iPhone でラジオを聞くなら jetAudio" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/" data-id="clfoysasq0005mrp883xjf0vc" data-title="iPhone でラジオを聞くなら jetAudio" class="article-share-link">共有</a>
       
       
       
@@ -473,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/" data-id="clfoymkl90003adp8b1v39ewt" data-title="Mac で Fileproviderd というプロセスの CPU 利用率が高い" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/" data-id="clfoysasu0006mrp827ubhoo7" data-title="Mac で Fileproviderd というプロセスの CPU 利用率が高い" class="article-share-link">共有</a>
       
       
       
@@ -524,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/" data-id="clfoymkln0007adp843tf0rij" data-title="hexo デフォルトのlandscapeテーマのバナー画像を変更する" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/" data-id="clfoysasg0003mrp8a1rg8zu7" data-title="hexo デフォルトのlandscapeテーマのバナー画像を変更する" class="article-share-link">共有</a>
       
       
       
@@ -592,7 +594,7 @@
           </li>
         
           <li>
-            <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/">vercel の lambda サイズ上限エラー</a>
+            <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/">vercel の lambda サイズ上限エラーとその回避方法</a>
           </li>
         
           <li>

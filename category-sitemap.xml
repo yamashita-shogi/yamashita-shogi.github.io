@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://blog.keiba-note.cyou/categories/vercel/</loc>
+        <lastmod>2023-03-26T05:33:11.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://blog.keiba-note.cyou/categories/Mac/</loc>
         <lastmod>2023-03-26T05:28:01.527Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,13 +32,6 @@
     <url>
         <loc>https://blog.keiba-note.cyou/categories/nuxt/</loc>
         <lastmod>2023-03-22T15:19:38.618Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://blog.keiba-note.cyou/categories/vercel/</loc>
-        <lastmod>2023-03-22T08:47:57.642Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

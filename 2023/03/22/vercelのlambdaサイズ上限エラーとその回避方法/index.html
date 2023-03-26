@@ -20,17 +20,17 @@
 
   <!-- ここまで -->
   
-  <title>vercel の lambda サイズ上限エラー | 競馬ノートのブログ</title>
+  <title>vercel の lambda サイズ上限エラーとその回避方法 | 競馬ノートのブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="概要vercel 上に SSR をデプロイしていますが、少し前にデプロイした最、以下のエラーに遭遇しました。 Error: The Serverless Function &quot;index&quot; is 85.53mb which exceeds the maximum size limit of 50mb. Learn More: https:&#x2F;&#x2F;vercel.link&#x2F;serverl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vercel の lambda サイズ上限エラー">
-<meta property="og:url" content="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/index.html">
+<meta property="og:title" content="vercel の lambda サイズ上限エラーとその回避方法">
+<meta property="og:url" content="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="競馬ノートのブログ">
 <meta property="og:description" content="概要vercel 上に SSR をデプロイしていますが、少し前にデプロイした最、以下のエラーに遭遇しました。 Error: The Serverless Function &quot;index&quot; is 85.53mb which exceeds the maximum size limit of 50mb. Learn More: https:&#x2F;&#x2F;vercel.link&#x2F;serverl">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2023-03-22T08:34:23.000Z">
-<meta property="article:modified_time" content="2023-03-22T08:47:57.642Z">
+<meta property="article:modified_time" content="2023-03-26T05:33:11.157Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -93,9 +93,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-vercelのlambdaサイズ上限エラー" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-vercelのlambdaサイズ上限エラーとその回避方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/" class="article-date">
+    <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/" class="article-date">
   <time class="dt-published" datetime="2023-03-22T08:34:23.000Z" itemprop="datePublished">2023-03-22</time>
 </a>
     
@@ -111,7 +111,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      vercel の lambda サイズ上限エラー
+      vercel の lambda サイズ上限エラーとその回避方法
     </h1>
   
 
@@ -123,7 +123,8 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: The Serverless Function &quot;index&quot; is 85.53mb which exceeds the maximum size limit of 50mb. Learn More: https://vercel.link/serverless-function-size</span><br></pre></td></tr></table></figure>
 
 <p>これの解消方法と調べたことを書きます</p>
-<h2 id="解消方法"><a href="#解消方法" class="headerlink" title="解消方法"></a>解消方法</h2><p><code>vercel.json</code> というデプロイの設定ファイルで指定するビルダーのバージョンを以下のように変更しました</p>
+<h2 id="解消方法"><a href="#解消方法" class="headerlink" title="解消方法"></a>解消方法</h2><p>まずは解消方法から書きます</p>
+<p><code>vercel.json</code> というデプロイの設定ファイルで指定するビルダーのバージョンを以下のように変更しました</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;use&quot;: &quot;@nuxtjs/vercel-builder&quot;</span><br><span class="line">↓</span><br><span class="line">&quot;use&quot;: &quot;@nuxtjs/vercel-builder@0.21.3&quot;</span><br></pre></td></tr></table></figure>
 
 
@@ -135,11 +136,12 @@
 </ul>
 <p>解消法は <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/74235239/vercel-build-size-vs-local-build-size-is-different">こちら</a> から vercel-build の github issue にたどり着き、それらを参考にしました</p>
 <p>もしかしたらもう治ってるかもしれませんが、バージョン固定をいつまでしてたらいいのかなど情報は追っておかないといけないかもしれませんね</p>
+<p>ビルダーのバグでこんなことになってしまうんだと勉強になりました</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/" data-id="clfoymkm5000dadp84zev6tc1" data-title="vercel の lambda サイズ上限エラー" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/" data-id="clfoysatm000bmrp8dmdoebrr" data-title="vercel の lambda サイズ上限エラーとその回避方法" class="article-share-link">共有</a>
       
       
       
@@ -224,7 +226,7 @@
           </li>
         
           <li>
-            <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC/">vercel の lambda サイズ上限エラー</a>
+            <a href="/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/">vercel の lambda サイズ上限エラーとその回避方法</a>
           </li>
         
           <li>
