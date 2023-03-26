@@ -9,6 +9,20 @@
 
 
     <url>
+        <loc>https://blog.keiba-note.cyou/categories/Python/</loc>
+        <lastmod>2023-03-26T05:52:03.624Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://blog.keiba-note.cyou/categories/iPhone/</loc>
+        <lastmod>2023-03-26T05:34:34.330Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://blog.keiba-note.cyou/categories/vercel/</loc>
         <lastmod>2023-03-26T05:33:11.157Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -39,20 +53,6 @@
     <url>
         <loc>https://blog.keiba-note.cyou/categories/hexo/</loc>
         <lastmod>2023-03-22T08:15:51.919Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://blog.keiba-note.cyou/categories/iPhone/</loc>
-        <lastmod>2023-03-22T08:12:18.368Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://blog.keiba-note.cyou/categories/Python/</loc>
-        <lastmod>2023-03-22T08:11:54.356Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

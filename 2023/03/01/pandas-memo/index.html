@@ -20,17 +20,17 @@
 
   <!-- ここまで -->
   
-  <title>pandas の値操作のメモ | 競馬ノートのブログ</title>
+  <title>pandas の操作についてののメモ | 競馬ノートのブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="概要pandas は超便利です pandas で解釈した dataframe の操作に関するメモをまとめます 思い出したら定期的に追記していきます 抽出例：数字含む内容なら サンプルprint(df[&quot;キー名&quot;].str.extract(r&quot;(\d.+)&quot;))">
+  <meta name="description" content="概要pandas は超便利です pandas で解釈した dataframe の操作に関するメモをまとめます 思い出したら定期的に追記していきます テーブルから dataframe の生成サンプルdf &#x3D; pd.read_html(str(table_html_source))  抽出例：特定のカラムで条件に合う行を抽出 サンプルdf &#x3D; df[~(df[&quot;キー 1&quot;].isn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pandas の値操作のメモ">
-<meta property="og:url" content="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/index.html">
+<meta property="og:title" content="pandas の操作についてののメモ">
+<meta property="og:url" content="https://blog.keiba-note.cyou/2023/03/01/pandas-memo/index.html">
 <meta property="og:site_name" content="競馬ノートのブログ">
-<meta property="og:description" content="概要pandas は超便利です pandas で解釈した dataframe の操作に関するメモをまとめます 思い出したら定期的に追記していきます 抽出例：数字含む内容なら サンプルprint(df[&quot;キー名&quot;].str.extract(r&quot;(\d.+)&quot;))">
+<meta property="og:description" content="概要pandas は超便利です pandas で解釈した dataframe の操作に関するメモをまとめます 思い出したら定期的に追記していきます テーブルから dataframe の生成サンプルdf &#x3D; pd.read_html(str(table_html_source))  抽出例：特定のカラムで条件に合う行を抽出 サンプルdf &#x3D; df[~(df[&quot;キー 1&quot;].isn">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2023-02-28T15:23:36.000Z">
-<meta property="article:modified_time" content="2023-03-22T08:11:54.356Z">
+<meta property="article:modified_time" content="2023-03-26T05:52:03.624Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="pandas">
 <meta name="twitter:card" content="summary">
@@ -94,9 +94,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-pandasの値操作のメモ" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-pandas-memo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" class="article-date">
+    <a href="/2023/03/01/pandas-memo/" class="article-date">
   <time class="dt-published" datetime="2023-02-28T15:23:36.000Z" itemprop="datePublished">2023-03-01</time>
 </a>
     
@@ -112,7 +112,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      pandas の値操作のメモ
+      pandas の操作についてののメモ
     </h1>
   
 
@@ -123,15 +123,28 @@
         <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>pandas は超便利です</p>
 <p>pandas で解釈した dataframe の操作に関するメモをまとめます</p>
 <p>思い出したら定期的に追記していきます</p>
-<h3 id="抽出"><a href="#抽出" class="headerlink" title="抽出"></a>抽出</h3><p>例：数字含む内容なら</p>
+<h2 id="テーブルから-dataframe-の生成"><a href="#テーブルから-dataframe-の生成" class="headerlink" title="テーブルから dataframe の生成"></a>テーブルから dataframe の生成</h2><figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = pd.read_html(<span class="built_in">str</span>(table_html_source))</span><br></pre></td></tr></table></figure>
+
+<h3 id="抽出"><a href="#抽出" class="headerlink" title="抽出"></a>抽出</h3><p>例：特定のカラムで条件に合う行を抽出</p>
+<figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = df[~(df[<span class="string">&quot;キー 1&quot;</span>].isna()) &amp; ~(<span class="built_in">all</span>[<span class="string">&quot;キー 2&quot;</span>] == <span class="number">0</span>)]</span><br></pre></td></tr></table></figure>
+
+<p><code>.isna</code> は数字かどうか、<code>==0</code> はそのままですね</p>
+<p><code>~</code> これで否定です</p>
+<p>dataframe はなにかフィルター系の処理をしたら dataframe がまた返ってくるので、元のものを上書きするか、別で保持する必要があります</p>
+<h3 id="正規表現を使った抽出"><a href="#正規表現を使った抽出" class="headerlink" title="正規表現を使った抽出"></a>正規表現を使った抽出</h3><p>例：特定のカラムで正規表現を使って抽出</p>
 <figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[<span class="string">&quot;キー名&quot;</span>].<span class="built_in">str</span>.extract(<span class="string">r&quot;(\d.+)&quot;</span>))</span><br></pre></td></tr></table></figure>
 
+<h3 id="置換"><a href="#置換" class="headerlink" title="置換"></a>置換</h3><figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = df[<span class="string">&quot;キー 1&quot;</span>].replace(<span class="string">&quot;あ&quot;</span>, <span class="string">&quot;&quot;</span>, regex=<span class="literal">True</span>).astype(<span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
 
+<h3 id="型の強制"><a href="#型の強制" class="headerlink" title="型の強制"></a>型の強制</h3><figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = df[<span class="string">&quot;キー 1&quot;</span>].astype(<span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
+
+<p>置換とかをしたあとに意図したデータだけになっているかとかの確認で使ってます</p>
+<p>異常値があれば置換だったりの不足に使えます</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" data-id="clfoysatj000amrp8arsx74t0" data-title="pandas の値操作のメモ" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas-memo/" data-id="clfozgpsy00085kp81ndecpfl" data-title="pandas の操作についてののメモ" class="article-share-link">共有</a>
       
       
       
@@ -222,7 +235,7 @@
           </li>
         
           <li>
-            <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandas の値操作のメモ</a>
+            <a href="/2023/03/01/pandas-memo/">pandas の操作についてののメモ</a>
           </li>
         
           <li>
@@ -230,7 +243,7 @@
           </li>
         
           <li>
-            <a href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio</a>
+            <a href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio がおすすめ</a>
           </li>
         
       </ul>

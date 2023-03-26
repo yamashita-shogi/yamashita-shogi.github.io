@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://blog.keiba-note.cyou/2023/03/01/pandas-memo/</loc>
+        <lastmod>2023-03-26T05:52:03.624Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/</loc>
+        <lastmod>2023-03-26T05:34:34.330Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/</loc>
         <lastmod>2023-03-26T05:33:11.157Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,22 +59,6 @@
     <url>
         <loc>https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/</loc>
         <lastmod>2023-03-22T08:15:51.919Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/</loc>
-        <lastmod>2023-03-22T08:12:18.368Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/</loc>
-        <lastmod>2023-03-22T08:11:54.356Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

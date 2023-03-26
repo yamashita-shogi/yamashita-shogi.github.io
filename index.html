@@ -153,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/24/CloudRun-Job%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%84/" data-id="clfoysas60001mrp83rtoeg48" data-title="CloudRun Job が動かない" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/24/CloudRun-Job%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%84/" data-id="clfozgps500015kp8ge9l4z17" data-title="CloudRun Job が動かない" class="article-share-link">共有</a>
       
       
       
@@ -213,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/" data-id="clfoysatm000bmrp8dmdoebrr" data-title="vercel の lambda サイズ上限エラーとその回避方法" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/22/vercel%E3%81%AElambda%E3%82%B5%E3%82%A4%E3%82%BA%E4%B8%8A%E9%99%90%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A8%E3%81%9D%E3%81%AE%E5%9B%9E%E9%81%BF%E6%96%B9%E6%B3%95/" data-id="clfozgpt6000a5kp8c88f9a2k" data-title="vercel の lambda サイズ上限エラーとその回避方法" class="article-share-link">共有</a>
       
       
       
@@ -225,9 +225,9 @@
 
 
   
-    <article id="post-pandasの値操作のメモ" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-pandas-memo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" class="article-date">
+    <a href="/2023/03/01/pandas-memo/" class="article-date">
   <time class="dt-published" datetime="2023-02-28T15:23:36.000Z" itemprop="datePublished">2023-03-01</time>
 </a>
     
@@ -243,7 +243,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandas の値操作のメモ</a>
+      <a class="p-name article-title" href="/2023/03/01/pandas-memo/">pandas の操作についてののメモ</a>
     </h1>
   
 
@@ -254,15 +254,28 @@
         <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>pandas は超便利です</p>
 <p>pandas で解釈した dataframe の操作に関するメモをまとめます</p>
 <p>思い出したら定期的に追記していきます</p>
-<h3 id="抽出"><a href="#抽出" class="headerlink" title="抽出"></a>抽出</h3><p>例：数字含む内容なら</p>
+<h2 id="テーブルから-dataframe-の生成"><a href="#テーブルから-dataframe-の生成" class="headerlink" title="テーブルから dataframe の生成"></a>テーブルから dataframe の生成</h2><figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = pd.read_html(<span class="built_in">str</span>(table_html_source))</span><br></pre></td></tr></table></figure>
+
+<h3 id="抽出"><a href="#抽出" class="headerlink" title="抽出"></a>抽出</h3><p>例：特定のカラムで条件に合う行を抽出</p>
+<figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = df[~(df[<span class="string">&quot;キー 1&quot;</span>].isna()) &amp; ~(<span class="built_in">all</span>[<span class="string">&quot;キー 2&quot;</span>] == <span class="number">0</span>)]</span><br></pre></td></tr></table></figure>
+
+<p><code>.isna</code> は数字かどうか、<code>==0</code> はそのままですね</p>
+<p><code>~</code> これで否定です</p>
+<p>dataframe はなにかフィルター系の処理をしたら dataframe がまた返ってくるので、元のものを上書きするか、別で保持する必要があります</p>
+<h3 id="正規表現を使った抽出"><a href="#正規表現を使った抽出" class="headerlink" title="正規表現を使った抽出"></a>正規表現を使った抽出</h3><p>例：特定のカラムで正規表現を使って抽出</p>
 <figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[<span class="string">&quot;キー名&quot;</span>].<span class="built_in">str</span>.extract(<span class="string">r&quot;(\d.+)&quot;</span>))</span><br></pre></td></tr></table></figure>
 
+<h3 id="置換"><a href="#置換" class="headerlink" title="置換"></a>置換</h3><figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = df[<span class="string">&quot;キー 1&quot;</span>].replace(<span class="string">&quot;あ&quot;</span>, <span class="string">&quot;&quot;</span>, regex=<span class="literal">True</span>).astype(<span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
 
+<h3 id="型の強制"><a href="#型の強制" class="headerlink" title="型の強制"></a>型の強制</h3><figure class="highlight python"><figcaption><span>サンプル</span></figcaption><table><tr><td class="code"><pre><span class="line">df = df[<span class="string">&quot;キー 1&quot;</span>].astype(<span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
+
+<p>置換とかをしたあとに意図したデータだけになっているかとかの確認で使ってます</p>
+<p>異常値があれば置換だったりの不足に使えます</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/" data-id="clfoysatj000amrp8arsx74t0" data-title="pandas の値操作のメモ" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2023/03/01/pandas-memo/" data-id="clfozgpsy00085kp81ndecpfl" data-title="pandas の操作についてののメモ" class="article-share-link">共有</a>
       
       
       
@@ -355,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/" data-id="clfoysat90008mrp80aw9aaf9" data-title="nuxt/content を使ったブログの構築" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/08/nuxt-content%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%83%96%E3%83%AD%E3%82%B0%E3%81%AE%E6%A7%8B%E7%AF%89/" data-id="clfozgpsu00075kp87yam1yo7" data-title="nuxt/content を使ったブログの構築" class="article-share-link">共有</a>
       
       
       
@@ -385,7 +398,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio</a>
+      <a class="p-name article-title" href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio がおすすめ</a>
     </h1>
   
 
@@ -424,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/" data-id="clfoysasq0005mrp883xjf0vc" data-title="iPhone でラジオを聞くなら jetAudio" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/" data-id="clfozgpsp00055kp8a76t26f4" data-title="iPhone でラジオを聞くなら jetAudio がおすすめ" class="article-share-link">共有</a>
       
       
       
@@ -475,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/" data-id="clfoysasu0006mrp827ubhoo7" data-title="Mac で Fileproviderd というプロセスの CPU 利用率が高い" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/07/Mac-%E3%81%A7-Fileproviderd%E3%81%A8%E3%81%84%E3%81%86%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AECPU%E5%88%A9%E7%94%A8%E7%8E%87%E3%81%8C%E9%AB%98%E3%81%84/" data-id="clfozgpsg00035kp88okpe8oh" data-title="Mac で Fileproviderd というプロセスの CPU 利用率が高い" class="article-share-link">共有</a>
       
       
       
@@ -526,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/" data-id="clfoysasg0003mrp8a1rg8zu7" data-title="hexo デフォルトのlandscapeテーマのバナー画像を変更する" class="article-share-link">共有</a>
+      <a data-url="https://blog.keiba-note.cyou/2022/11/04/hexo-landscape-setup/" data-id="clfozgpte000d5kp828f471q7" data-title="hexo デフォルトのlandscapeテーマのバナー画像を変更する" class="article-share-link">共有</a>
       
       
       
@@ -598,7 +611,7 @@
           </li>
         
           <li>
-            <a href="/2023/03/01/pandas%E3%81%AE%E5%80%A4%E6%93%8D%E4%BD%9C%E3%81%AE%E3%83%A1%E3%83%A2/">pandas の値操作のメモ</a>
+            <a href="/2023/03/01/pandas-memo/">pandas の操作についてののメモ</a>
           </li>
         
           <li>
@@ -606,7 +619,7 @@
           </li>
         
           <li>
-            <a href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio</a>
+            <a href="/2022/11/07/iPhone%E3%81%A7%E3%83%A9%E3%82%B8%E3%82%AA%E3%82%92%E8%81%9E%E3%81%8F%E3%81%AA%E3%82%89jetAudio/">iPhone でラジオを聞くなら jetAudio がおすすめ</a>
           </li>
         
       </ul>
