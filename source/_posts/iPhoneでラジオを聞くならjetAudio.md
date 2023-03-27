@@ -1,5 +1,5 @@
 ---
-title: iPhone でラジオを聞くなら jetAudio
+title: iPhone でラジオを聞くなら jetAudio がおすすめ
 date: 2022-11-07 00:33:54
 categories:
 - iPhone

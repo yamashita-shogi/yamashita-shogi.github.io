@@ -1,5 +1,5 @@
 ---
-title: vercel の lambda サイズ上限エラー
+title: vercel の lambda サイズ上限エラーとその回避方法
 date: 2023-03-22 17:34:23
 categories:
 - vercel
@@ -15,6 +15,8 @@ Error: The Serverless Function "index" is 85.53mb which exceeds the maximum size
 
 
 ## 解消方法
+まずは解消方法から書きます
+
 `vercel.json` というデプロイの設定ファイルで指定するビルダーのバージョンを以下のように変更しました
 ```
 "use": "@nuxtjs/vercel-builder"
@@ -32,3 +34,5 @@ Error: The Serverless Function "index" is 85.53mb which exceeds the maximum size
 解消法は [こちら](https://stackoverflow.com/questions/74235239/vercel-build-size-vs-local-build-size-is-different) から vercel-build の github issue にたどり着き、それらを参考にしました
 
 もしかしたらもう治ってるかもしれませんが、バージョン固定をいつまでしてたらいいのかなど情報は追っておかないといけないかもしれませんね
+
+ビルダーのバグでこんなことになってしまうんだと勉強になりました
