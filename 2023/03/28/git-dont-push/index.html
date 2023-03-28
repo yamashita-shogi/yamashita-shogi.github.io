@@ -20,15 +20,21 @@
 
   <!-- ここまで -->
   
-  <title>カテゴリ: hexo | 競馬ノートのブログ</title>
+  <title>github に push できない場合はステータスページをまず見よう | 競馬ノートのブログ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="競馬ノートのブログ">
-<meta property="og:url" content="https://blog.keiba-note.cyou/categories/hexo/index.html">
+  <meta name="description" content="概要 内容昨日以下のような表記で github に push できない事象が起きまして、かなり慌てました $ git push origin HEADEnumerating objects: 18, done.Counting objects: 100% (18&#x2F;18), done.Delta compression using up to 8 threadsCompressing objects">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github に push できない場合はステータスページをまず見よう">
+<meta property="og:url" content="https://blog.keiba-note.cyou/2023/03/28/git-dont-push/index.html">
 <meta property="og:site_name" content="競馬ノートのブログ">
+<meta property="og:description" content="概要 内容昨日以下のような表記で github に push できない事象が起きまして、かなり慌てました $ git push origin HEADEnumerating objects: 18, done.Counting objects: 100% (18&#x2F;18), done.Delta compression using up to 8 threadsCompressing objects">
 <meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://blog.keiba-note.cyou/images/github_incident.png">
+<meta property="article:published_time" content="2023-03-28T10:15:35.000Z">
+<meta property="article:modified_time" content="2023-03-28T10:32:35.433Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.keiba-note.cyou/images/github_incident.png">
   
     <link rel="alternate" href="/atom.xml" title="競馬ノートのブログ" type="application/atom+xml">
   
@@ -89,39 +95,64 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/04/hexo-landscape-setup/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-03T15:08:30.000Z" itemprop="datePublished">11月 4</time>
+        <section id="main"><article id="post-git-dont-push" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/28/git-dont-push/" class="article-date">
+  <time class="dt-published" datetime="2023-03-28T10:15:35.000Z" itemprop="datePublished">2023-03-28</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/github/">github</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/04/hexo-landscape-setup/">hexo デフォルトのlandscapeテーマのバナー画像を変更する</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      github に push できない場合はステータスページをまず見よう
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><img src="/images/github_incident.png" alt="2023/03/27 の内容"></p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>昨日以下のような表記で github に push できない事象が起きまして、かなり慌てました</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin HEAD</span><br><span class="line">Enumerating objects: 18, done.</span><br><span class="line">Counting objects: 100% (18/18), done.</span><br><span class="line">Delta compression using up to 8 threads</span><br><span class="line">Compressing objects: 100% (8/8), done.</span><br><span class="line">Writing objects: 100% (10/10), 1.57 KiB | 1.57 MiB/s, done.</span><br><span class="line">Total 10 (delta 5), reused 0 (delta 0), pack-reused 0</span><br><span class="line">remote: Resolving deltas: 100% (5/5), completed with 4 local objects.</span><br><span class="line">remote: fatal error in commit_refs</span><br><span class="line">To github.com:hoge/fuga.git</span><br><span class="line"> ! [remote rejected] HEAD -&gt; hoge (failure)</span><br></pre></td></tr></table></figure>
+
+<p>なにか自分のミスではないかという思考でいろいろローカルを見てたのですが、一向に解消せず。</p>
+<p>結果、github で障害が起きていたことを知りました。</p>
+<p>なかなか github の障害にあたることが無かったのでいい機会になりました。</p>
+<p>まずはステータスを見てみようということですね。以下から確認できます。<br><a target="_blank" rel="noopener" href="https://www.githubstatus.com/">https://www.githubstatus.com/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.keiba-note.cyou/2023/03/28/git-dont-push/" data-id="clfs4g2740005zwp8funx88wx" data-title="github に push できない場合はステータスページをまず見よう" class="article-share-link">共有</a>
+      
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/03/24/CloudRun-Job%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">CloudRun Job が動かない</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
