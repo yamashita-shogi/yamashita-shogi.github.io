@@ -2,6 +2,8 @@
 title: CloudRun Job が動かない
 date: 2023-03-24 00:08:51
 categories:
+- GCP
+tags:
 - CloudRun
 ---
 

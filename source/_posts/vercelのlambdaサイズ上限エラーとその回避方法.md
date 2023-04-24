@@ -6,7 +6,7 @@ categories:
 ---
 
 ## 概要
-vercel 上に SSR をデプロイしていますが、少し前にデプロイした最、以下のエラーに遭遇しました。
+vercel 上に SSR をデプロイしていますが、少し前にデプロイした際、突然以下のエラーに遭遇しました。
 ```
 Error: The Serverless Function "index" is 85.53mb which exceeds the maximum size limit of 50mb. Learn More: https://vercel.link/serverless-function-size
 ```
